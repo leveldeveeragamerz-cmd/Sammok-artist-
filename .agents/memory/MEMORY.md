@@ -1,0 +1,1 @@
+- [Static Vite metadata](vite-static-metadata.md) — artifact builds may treat root or directory-relative metadata URLs as asset imports; use concrete document-relative paths when the production URL is unknown.

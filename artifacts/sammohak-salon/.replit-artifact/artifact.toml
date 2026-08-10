@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "SAMMOHAK Unisex Salon"
+description = "A premium responsive salon website for SAMMOHAK in Pratap Nagar, Jaipur, with exact service pricing, editorial presentation, and WhatsApp appointment booking."
+version = "1.0.0"
+id = "artifacts/sammohak-salon"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 20441
+
+[services.development]
+run = "pnpm --filter @workspace/sammohak-salon run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/sammohak-salon", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/sammohak-salon/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "20441"
+BASE_PATH = "/"
